@@ -1,14 +1,27 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, ListView,DetailView
 # from django.http import HttpResponse
+from . import models
 
-# This is template view with CBV
-class IndexView(TemplateView):
-    template_name = 'index.html'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['injectme'] = "BASIC INJECTION"
-        return context
+# from below you will be provided with a list of records in this model.
+class SchoolListView(ListView):
+    model = models.School
+
+class SchoolDetailView(DetailView):
+    model = models.School
+    template_name = 'basic_appcbv/school_detail.html'
+    # by using template_name this point out to the template
+
+
+
+
+# # This is template view with CBV
+# class IndexView(TemplateView):
+#     template_name = 'index.html'
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['injectme'] = "BASIC INJECTION"
+#         return context
 # if the index.html file is in different folder under templates folder then template_name = 'folder_name/index.html'
 
 # # this is a class based view(CBV).
