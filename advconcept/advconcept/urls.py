@@ -21,4 +21,5 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     # url(r'^$',views.CBView.as_view()),
     url(r'^$',views.IndexView.as_view()),
+    url(r'^basic_appcbv/',include('basic_appcbv.urls', namespace='basic_appcbv'))
 ]

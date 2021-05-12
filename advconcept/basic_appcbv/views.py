@@ -6,8 +6,12 @@ from . import models
 # from below you will be provided with a list of records in this model.
 class SchoolListView(ListView):
     model = models.School
+    context_object_name = 'schools'
 
+# the ListView we are inheriting is doing the work of creating the context dictionary.It takes the model you called i.e. school and _list.
+# School_list, by  default list view will return context name as model_name_list and detail view return as model_name by you can also assign by yourself.
 class SchoolDetailView(DetailView):
+    context_object_name = 'schools'
     model = models.School
     template_name = 'basic_appcbv/school_detail.html'
     # by using template_name this point out to the template
@@ -16,8 +20,8 @@ class SchoolDetailView(DetailView):
 
 
 # # This is template view with CBV
-# class IndexView(TemplateView):
-#     template_name = 'index.html'
+class IndexView(TemplateView):
+    template_name = 'index.html'
 #     def get_context_data(self, **kwargs):
 #         context = super().get_context_data(**kwargs)
 #         context['injectme'] = "BASIC INJECTION"
