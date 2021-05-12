@@ -1,10 +1,19 @@
-% extends "basic_appcbv/basic_app_base.html" %}
+{% extends "basic_appcbv/basic_app_base.html" %}
 
 {% block body_block %}
-<h1>Welcome to School Detail Page!</h1>
-<h2>School details:</h2>
-<p>Name: {{school_detail.name}} </p>
-<p>Principal: {{school_detail.principal}} </p>
-<p>Location: {{school_detail.location}} </p>
+<div>
+    <h1>Welcome to School Detail Page!</h1>
+    <h2>School details:</h2>
+    <p>Name: {{school_detail.name}} </p>
+    <p>Principal: {{school_detail.principal}} </p>
+    <p>Location: {{school_detail.location}} </p>
+    <h3>Students:</h3>
+        
+    {% for student in school_detail.students.all %}
+    <p>{{student.name}} who is {{student.age}} years old.</p>
+    {% endfor %}
 
+</div>
+<!-- in the above for loop school_detail is the by default context dictionary returned from the views.py(context_object_type) -->
+<!-- and the related name used in views.py detail view is used-> .students .all will going to return anything that matches foreign key. -->
 {% endblock %}

@@ -11,7 +11,7 @@ class SchoolListView(ListView):
 # the ListView we are inheriting is doing the work of creating the context dictionary.It takes the model you called i.e. school and _list.
 # School_list, by  default list view will return context name as model_name_list and detail view return as model_name by you can also assign by yourself.
 class SchoolDetailView(DetailView):
-    context_object_name = 'schools'
+    context_object_name = 'school_detail'
     model = models.School
     template_name = 'basic_appcbv/school_detail.html'
     # by using template_name this point out to the template
