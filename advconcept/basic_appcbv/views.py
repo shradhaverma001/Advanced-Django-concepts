@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView, ListView,DetailView
+from django.views.generic import View, TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 # from django.http import HttpResponse
 from . import models
 
@@ -16,7 +16,14 @@ class SchoolDetailView(DetailView):
     template_name = 'basic_appcbv/school_detail.html'
     # by using template_name this point out to the template
 
-
+class SchoolCreateView(CreateView):
+    fields = ('name','principal','location')
+    model = models.School
+    
+class SchoolUpdateView(UpdateView):
+    fields = ('name','principal')
+    model = models.School
+    
 
 
 # # This is template view with CBV

@@ -1,0 +1,25 @@
+{% extends "basic_appcbv/basic_app_base.html" %}
+
+{% block body_block %}
+
+<h1>
+    {% if not form.instance.pk %}
+    Create School
+    {% else %}
+    Update School
+    {% endif %}
+</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Submit" name="SUBMIT">
+        
+    </form>
+
+{% endblock %}
+
+<!-- the above logic says i am going to extend from basic app, have the body block and the heading of this form page.
+This page is going to check if the instance of the primary key exists or not.if it does not exists that means this is a new school and we are going to create the school.
+otherwise we are gooing to update the school that currently exists. -->
+
